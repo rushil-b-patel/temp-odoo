@@ -1,0 +1,29 @@
+name: Send Emails Twice Daily
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+    - cron: "0 14 * * *"
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "16"
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run email script
+      env:
+        FROMEMAIL: ${{ secrets.FROMEMAIL }}
+        TOEMAIL: ${{ secrets.TOEMAIL }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+      run: node index.js
