@@ -9,16 +9,17 @@ const PASSWORD = process.env.PASSWORD;
 const NAME = process.env.NAME;
 
 const emailText = `
-Respected Ma'am,
+Dear Hiring Manager,
 
-I am writing to follow up on my Coderbyte test for the Software Developer Intern position(applied on 22nd Oct). I successfully completed the test on Oct 24, 2024.
+I am writing to follow up on my Software Developer Intern position(applied on 22nd Oct). I successfully completed the test on Oct 24, 2024.
 
-I would appreciate it if you could provide an update on the status of my application. Any feedback or information regarding the next steps in the hiring process would be greatly helpful.
+I would appreciate if you can provide an update on the status of my application. Any feedback or information regarding the next steps in the hiring process would be greatly helpful.
 
 Thank you for your time and consideration.
 
 Sincerely,  
 ${NAME}
+${FROMEMAIL}
 `;
 
 async function sendEmail() {
@@ -34,7 +35,7 @@ async function sendEmail() {
     const mailOptions = {
       from: FROMEMAIL,
       to: TOEMAIL,
-      subject: "Follow-Up on Coderbyte Test for Software Developer Intern Position",
+      subject: "Follow-Up on Software Developer Intern application",
       text: emailText,
     };
 
@@ -45,4 +46,5 @@ async function sendEmail() {
   }
 }
 
-sendEmail();
+// sendEmail();
+console.log(emailText);

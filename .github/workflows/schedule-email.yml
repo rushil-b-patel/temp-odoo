@@ -2,8 +2,8 @@ name: Send Emails Twice Daily
 
 on:
   schedule:
-    - cron: "0 10 * * *"
-    - cron: "0 14 * * *"
+    - cron: "30 4 * * *"
+    - cron: "30 8 * * *"
 
 jobs:
   send-email:
