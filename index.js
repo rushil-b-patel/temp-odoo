@@ -46,5 +46,4 @@ async function sendEmail() {
   }
 }
 
-// sendEmail();
-console.log(emailText);
+sendEmail();
