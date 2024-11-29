@@ -26,4 +26,5 @@ jobs:
         FROMEMAIL: ${{ secrets.FROMEMAIL }}
         TOEMAIL: ${{ secrets.TOEMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
+        NAME: ${{ secrets.NAME }}
       run: node index.js
