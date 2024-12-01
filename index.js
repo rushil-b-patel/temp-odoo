@@ -40,10 +40,12 @@ async function sendEmail() {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully!");
   } catch (error) {
-    console.error("Error sending email:", error);
   }
 }
 
-sendEmail();
+const emailList = [process.env.EMAIL1, process.env.EMAIL2];
+
+for(let i=0; i<emailList.length; i++) {
+  sendEmail();
+}
