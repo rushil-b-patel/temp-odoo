@@ -22,7 +22,7 @@ ${NAME}
 ${FROMEMAIL}
 `;
 
-async function sendEmail() {
+async function sendEmail(email) {
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -34,7 +34,7 @@ async function sendEmail() {
 
     const mailOptions = {
       from: FROMEMAIL,
-      to: TOEMAIL,
+      to: email,
       subject: "Follow-Up on Software Developer Intern application",
       text: emailText,
     };
@@ -47,5 +47,5 @@ async function sendEmail() {
 const emailList = [process.env.EMAIL1, process.env.EMAIL2];
 
 for(let i=0; i<emailList.length; i++) {
-  sendEmail();
+  sendEmail(emailList[i]);
 }
